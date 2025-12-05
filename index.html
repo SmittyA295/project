@@ -1,492 +1,309 @@
-<!--
-AI Assistance:
-Generated with ChatGPT (Nov 18, 2025) to produce a high-fidelity single-page HTML/CSS mockup skeleton.
-Assistance purpose: create an example site skeleton, CSS layout, and components (student is responsible for content).
+<!-- 
+Complex mockup-coded version of Anderson Smith's Portfolio
+Built using layered CSS backgrounds (torn edges, doodles, notebook lines)
+This code uses placeholder images only.
 -->
-<!doctype html>
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Graphic Design Portfolio — Mockup</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anderson Smith Portfolio</title>
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <!-- FONTS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Gochi+Hand&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
 
   <style>
-    /* ====== Base / Page ====== */
-    :root{
-      --content-width: 1200px;
-      --bg-paper: #fbfbf9;
-      --accent-teal: #64E6C5;
-      --accent-navy: #0b3550;
-      --muted-beige: #f4efe9;
-      --notebook-line: rgba(200,210,220,0.45);
-      --max-artboard: 1440px;
+
+    /* ------------------------------
+       GLOBAL
+    ------------------------------ */
+
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #f3efe8;
+      font-family: "Open Sans", sans-serif;
+      color: #333;
     }
 
-    html,body{
-      height:100%;
-      margin:0;
-      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    h1, h2, h3 {
+      font-family: "Gochi Hand", cursive;
+      margin: 0;
+      padding: 0;
+      color: #203040;
+    }
+
+    p, li {
+      line-height: 1.6;
+      font-size: 1rem;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    /* Centered content area required by assignment */
+    .content-container {
+      width: 1200px;
+      margin: 0 auto;
+      padding: 60px 40px;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Left doodle strip (repeats vertically) */
+    .doodle-left {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 120px;
+      height: 100%;
+      background: url('left-doodles-strip.png') repeat-y left top;
+      z-index: 1;
+      opacity: 0.85;
+    }
+
+
+    /* ------------------------------
+       SECTION BACKGROUND COMPOSITE
+       • Torn top
+       • Torn bottom
+       • Notebook lines (center)
+       • Left doodle strip (extra div)
+    ------------------------------ */
+
+    section {
+      position: relative;
+      min-height: 600px;
       background:
-        linear-gradient(180deg, rgba(255,255,255,0.6) 0%, rgba(255,255,255,0.6) 100%),
-        /* subtle grid paper texture using repeating-linear-gradient */
-        repeating-linear-gradient(0deg, transparent 0 28px, var(--notebook-line) 28px 29px),
-        #f8f9fb;
-      color:#17202a;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
+        url('torn-top.png') top center no-repeat,
+        url('torn-bottom.png') bottom center no-repeat,
+        url('notebook-lines.jpg') center / cover repeat;
+      padding-top: 140px;
+      padding-bottom: 140px;
+      box-sizing: border-box;
     }
 
-    /* Center the artboard (simulates 1440 mockup with 120px gutters) */
-    .artboard {
+
+    /* ------------------------------
+       HEADER SECTION
+    ------------------------------ */
+    #header {
+      text-align: center;
+    }
+
+    #header h1 {
+      font-size: 5rem;
+      color: #2ea8a4;
+      letter-spacing: 3px;
+      margin-bottom: 20px;
+    }
+
+
+    /* ------------------------------
+       ABOUT SECTION
+    ------------------------------ */
+
+    #about-grid {
+      display: grid;
+      grid-template-columns: 350px auto;
+      gap: 40px;
+      align-items: start;
+    }
+
+    .about-photo {
       width: 100%;
-      display:flex;
-      justify-content:center;
-      padding:40px 0;
-      box-sizing:border-box;
-    }
-
-    /* ====== Content Container (1200px) ====== */
-    .container {
-      width: var(--content-width);
-      max-width: calc(var(--max-artboard) - 240px);
-      background: linear-gradient(180deg, rgba(255,255,255,0.96), rgba(249,246,241,0.98));
-      box-shadow: 0 8px 20px rgba(16,24,32,0.08);
-      border-radius:8px;
-      overflow: visible;
-      position:relative;
-      box-sizing:border-box;
-      padding: 36px 56px;
-      border: 1px solid rgba(10,10,10,0.03);
-    }
-
-    /* Left doodle strip (background image placeholder) */
-    .container::before{
-      content:"";
-      position:absolute;
-      left:-86px;
-      top:0;
-      bottom:0;
-      width:86px;
-      background-image: url('left-doodle.png'); /* replace with actual doodle PNG with repeat-y */
-      background-repeat: repeat-y;
-      background-size: cover;
-      border-right: 1px solid rgba(0,0,0,0.04);
-    }
-
-    /* Torn paper top & bottom (decorative) */
-    .torn-top, .torn-bottom{
-      width: calc(var(--content-width) + 0px);
-      max-width: calc(var(--max-artboard) - 240px);
-      margin-left: auto;
-      margin-right:auto;
-      height:30px;
-      background-image: url('torn-top.png'); /* optional small PNG with transparent background */
-      background-size: cover;
-      background-repeat: no-repeat;
-    }
-
-    /* ====== Header ====== */
-    header{
-      text-align:center;
-      margin-bottom: 18px;
-    }
-
-    header .eyebrow {
-      display:flex;
-      justify-content:space-between;
-      font-size:14px;
-      color:#56636d;
-      margin-bottom:8px;
-      font-weight:600;
-    }
-
-    h1.title{
-      font-family: "Gloria Hallelujah", "Gloria Hallelujah", cursive;
-      font-size:64px;
-      margin:6px 0 6px;
-      color:var(--accent-teal);
-      letter-spacing: -0.02em;
-      line-height: 0.95;
-      text-transform: none;
-      text-shadow: 0 1px 0 rgba(255,255,255,0.6);
-    }
-
-    header .subtitle{
-      font-size:18px;
-      color:#1b3440;
-      margin-top:6px;
-      font-weight:600;
-    }
-
-    /* ====== Navigation (internal ID links) ====== */
-    nav{
-      display:flex;
-      justify-content:center;
-      margin: 18px 0 28px;
-    }
-    nav ul{
-      list-style:none;
-      margin:0;
-      padding:0;
-      display:flex;
-      gap:20px;
-    }
-    nav a{
-      text-decoration:none;
-      color:var(--accent-navy);
-      font-weight:600;
-      padding:6px 12px;
-      border-radius:6px;
-      transition: all .18s ease;
-      border:1px solid transparent;
-    }
-    nav a:hover{
-      background: rgba(100,230,197,0.08);
-      transform: translateY(-2px);
-      border-color: rgba(100,150,135,0.12);
-      color: #04323f;
-    }
-    nav a:active{ transform: translateY(0); }
-    nav a:visited{ color:#16424f; }
-
-    /* ====== Layout utilities ====== */
-    .row { display:flex; gap:28px; align-items:flex-start; }
-    .col { flex:1; }
-    .two-col { display:grid; grid-template-columns: 1fr 1fr; gap:28px; align-items:start; }
-
-    /* ====== About Section ====== */
-    section#about{
-      margin-bottom: 36px;
-      padding: 18px 12px;
-      background: linear-gradient(180deg, rgba(255,255,255,0.0), rgba(250,247,242,0.02));
-      border-radius:6px;
-      border: 1px solid rgba(10,10,10,0.02);
-    }
-
-    .about-inner{
-      display:grid;
-      grid-template-columns: 220px 1fr;
-      gap:20px;
-      align-items:start;
-    }
-    .photo-hex {
-      width:220px;
-      height:220px;
-      background: url('photo-placeholder.jpg') center/cover no-repeat;
-      clip-path: polygon(25% 6%, 75% 6%, 100% 50%, 75% 94%, 25% 94%, 0% 50%);
-      border:6px solid rgba(255,255,255,0.6);
-      box-shadow: 0 6px 18px rgba(14,26,30,0.06);
-    }
-    .about-text h2{
-      margin:0 0 8px;
-      font-size:22px;
-      letter-spacing:0.02em;
-      color:var(--accent-navy);
-    }
-    .about-text p{
-      margin:0 0 12px;
-      line-height:1.6;
-      font-size:15px;
-      color:#21343b;
-    }
-
-    /* contact / info boxes */
-    .info-grid{
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap:14px;
-      margin-top:10px;
-    }
-    .info-card{
-      background:var(--muted-beige);
-      padding:10px;
-      border-radius:6px;
-      border:1px solid rgba(0,0,0,0.03);
-      font-size:14px;
-    }
-    .info-card small{ display:block; color:#5a6a6f; margin-bottom:6px; font-weight:600; }
-
-    /* ====== Software skills block (table example included below) ====== */
-    .skills {
-      margin-top:10px;
-      display:flex;
-      gap:18px;
-      align-items:center;
-    }
-    .skill-pill{
-      background:#fff;
-      border:1px solid rgba(0,0,0,0.06);
-      padding:8px 10px;
-      border-radius:8px;
-      font-weight:600;
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-    }
-
-    /* ====== Logofolio ====== */
-    section#logos{
-      margin-top:26px;
-      padding:18px 12px;
-    }
-    h3.section-title{
-      text-align:center;
-      font-size:28px;
-      letter-spacing:0.02em;
-      color: #274a55;
-      margin:6px 0 18px;
-      text-transform:uppercase;
-      font-weight:700;
-    }
-    .logo-grid{
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap:22px;
-      align-items:start;
-    }
-    .logo-item{
+      border: 6px solid #e0ddd5;
       background: #fff;
-      padding:22px;
-      border-radius:8px;
-      min-height:140px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      border:1px dashed rgba(0,0,0,0.04);
-      box-shadow: 0 6px 14px rgba(14,26,30,0.03);
     }
 
-    /* ====== Posterfolio ====== */
-    section#posters{
-      margin-top:36px;
-      padding: 18px 12px;
+    .about-lists {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      column-gap: 40px;
+      margin-top: 20px;
     }
-    .poster-grid{
-      display:grid;
+
+
+    /* ------------------------------
+       LOGOFOLIO
+    ------------------------------ */
+
+    #logofolio-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+      margin-top: 30px;
+    }
+
+    .logo-box img {
+      background: #fafafa;
+      border: 4px solid #d0d0d0;
+    }
+
+    .logo-caption {
+      font-size: 0.9rem;
+      margin-top: 8px;
+    }
+
+
+    /* ------------------------------
+       POSTERFOLIO
+    ------------------------------ */
+
+    #posterfolio-grid {
+      margin-top: 40px;
+      display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap:20px;
-    }
-    .poster-item{
-      background:#fff;
-      border-radius:6px;
-      padding:12px;
-      border:1px solid rgba(0,0,0,0.04);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      min-height:170px;
-      transition: transform .14s ease, box-shadow .14s ease;
-    }
-    .poster-item:hover{
-      transform: translateY(-6px);
-      box-shadow: 0 18px 36px rgba(12,20,26,0.08);
+      gap: 30px;
     }
 
-    /* ====== Table for HTML requirement ====== */
-    .data-table {
-      width:100%;
-      border-collapse: collapse;
-      margin-top:12px;
-      font-size:14px;
-    }
-    .data-table th, .data-table td{
-      border:1px solid rgba(0,0,0,0.06);
-      padding:8px 10px;
-      text-align:left;
-    }
-    .data-table th{
-      background: #f6f8f9;
-      font-weight:700;
-      color:#15303a;
+    .poster-box img {
+      background: #fafafa;
+      border: 4px solid #d0d0d0;
     }
 
-    /* ====== Footer ====== */
-    footer{
-      margin-top:38px;
-      text-align:center;
-      color:#55686c;
-      font-size:13px;
-      padding:18px 8px 8px;
-    }
-
-    /* ====== Responsive-ish helper (desktop target only requested) ====== */
-    @media (max-width: 1200px){
-      .container { padding:20px; }
-      .photo-hex { width:160px; height:160px; }
-      .about-inner { grid-template-columns: 160px 1fr; }
-      .poster-grid { grid-template-columns: repeat(2,1fr); }
-      .logo-grid { grid-template-columns: repeat(2,1fr); }
-    }
-
-    /* small helpers (links inside cards etc.) */
-    a.external {
-      color: var(--accent-navy);
-      text-decoration: underline;
-    }
   </style>
 </head>
+
 <body>
-  <div class="artboard">
-    <div style="width:var(--content-width); display:block;">
-      <div class="torn-top" aria-hidden="true"></div> <!-- decorative torn edge -->
-      <main class="container" role="main">
-        <header>
-          <div class="eyebrow">
-            <span>Name: <strong>Anderson Smith</strong></span>
-            <span>Date: <strong>11/17/2025</strong></span>
-          </div>
 
-          <h1 class="title">Graphic Design<br/>Portfolio</h1>
-          <div class="subtitle">Personal portfolio mockup — Notebook theme</div>
-        </header>
+  <!-- Left doodle strip (always visible) -->
+  <div class="doodle-left"></div>
 
-        <nav aria-label="Primary navigation">
-          <ul>
-            <li><a href="#about">About</a></li>
-            <li><a href="#logos">Logofolio</a></li>
-            <li><a href="#posters">Posterfolio</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
-        </nav>
+  <!-- =======================================================
+       HEADER SECTION
+  ==========================================================-->
+  <section id="header">
+    <div class="content-container">
+      <h1>PORTFOLIO</h1>
+    </div>
+  </section>
 
-        <!-- ABOUT -->
-        <section id="about" aria-labelledby="about-heading">
-          <div class="about-inner">
-            <div class="photo-hex" role="img" aria-label="Photo placeholder"></div>
-            <div class="about-text">
-              <h2 id="about-heading">About Me</h2>
-              <p>
-                I'm a design student exploring branding, poster design, and illustration.
-                This mockup demonstrates how your portfolio content can be arranged in a 1200px centered container.
-                Replace this text with your real bio.
-              </p>
+  <!-- =======================================================
+       ABOUT ME SECTION
+  ==========================================================-->
+  <section id="about">
+    <div class="content-container">
 
-              <div class="info-grid" aria-hidden="false">
-                <div class="info-card">
-                  <small>Contact</small>
-                  <div>📧 <a href="mailto:smithy123@uwaterloo.ca">smithy123@uwaterloo.ca</a></div>
-                  <div>📞 519-617-5440</div>
-                </div>
+      <h2>ABOUT ME</h2>
 
-                <div class="info-card">
-                  <small>Education</small>
-                  <div>Global Business & Digital Arts — University of Waterloo</div>
-                  <div style="margin-top:6px;"><a class="external" href="https://uwaterloo.ca" target="_blank" rel="noopener">Visit UW site (external)</a></div>
-                </div>
+      <div id="about-grid">
 
-                <div class="info-card">
-                  <small>Interests</small>
-                  <ul style="margin:6px 0 0 16px; padding:0;">
-                    <li>Typography</li>
-                    <li>Branding</li>
-                    <li>Illustration</li>
-                  </ul>
-                </div>
-              </div>
+        <!-- PHOTO -->
+        <img class="about-photo" src="placeholder-about-photo.jpg" alt="Anderson photo">
 
-              <div class="skills" style="margin-top:12px;">
-                <div class="skill-pill">Ps (Advanced)</div>
-                <div class="skill-pill">Ai (Intermediate)</div>
-                <div class="skill-pill">Figma (Intermediate)</div>
-              </div>
-
-              <!-- Example HTML Table (requirement) -->
-              <table class="data-table" aria-label="Education timeline">
-                <thead>
-                  <tr>
-                    <th>Year</th>
-                    <th>Program / Event</th>
-                    <th>Notes</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>2024</td>
-                    <td>Global Business & Digital Arts</td>
-                    <td>Started program at University of Waterloo</td>
-                  </tr>
-                  <tr>
-                    <td>2025</td>
-                    <td>Skills Ontario — Pin Contest</td>
-                    <td>Regional competition</td>
-                  </tr>
-                </tbody>
-              </table>
-
-            </div>
-          </div>
-        </section>
-
-        <!-- LOGOFOLIO -->
-        <section id="logos" aria-labelledby="logos-heading">
-          <h3 id="logos-heading" class="section-title">Logofolio</h3>
-
-          <div class="logo-grid" role="list">
-            <div class="logo-item"><img src="logo1.png" alt="Logo 1 placeholder" style="max-width:80%; height:auto;"></div>
-            <div class="logo-item"><img src="logo2.png" alt="Logo 2 placeholder" style="max-width:80%; height:auto;"></div>
-            <div class="logo-item"><img src="logo3.png" alt="Logo 3 placeholder" style="max-width:80%; height:auto;"></div>
-            <div class="logo-item"><img src="logo4.png" alt="Logo 4 placeholder" style="max-width:80%; height:auto;"></div>
-            <div class="logo-item"><img src="logo5.png" alt="Logo 5 placeholder" style="max-width:80%; height:auto;"></div>
-            <div class="logo-item"><img src="logo6.png" alt="Logo 6 placeholder" style="max-width:80%; height:auto;"></div>
-          </div>
-        </section>
-
-        <!-- POSTERFOLIO -->
-        <section id="posters" aria-labelledby="posters-heading">
-          <h3 id="posters-heading" class="section-title">Posterfolio</h3>
-
-          <div class="poster-grid" role="list">
-            <div class="poster-item"><img src="poster1.jpg" alt="Poster 1 placeholder" style="max-width:100%; height:auto;"></div>
-            <div class="poster-item"><img src="poster2.jpg" alt="Poster 2 placeholder" style="max-width:100%; height:auto;"></div>
-            <div class="poster-item"><img src="poster3.jpg" alt="Poster 3 placeholder" style="max-width:100%; height:auto;"></div>
-            <div class="poster-item"><img src="poster4.jpg" alt="Poster 4 placeholder" style="max-width:100%; height:auto;"></div>
-            <div class="poster-item"><img src="poster5.jpg" alt="Poster 5 placeholder" style="max-width:100%; height:auto;"></div>
-            <div class="poster-item"><img src="poster6.jpg" alt="Poster 6 placeholder" style="max-width:100%; height:auto;"></div>
-            <div class="poster-item"><img src="poster7.jpg" alt="Poster 7 placeholder" style="max-width:100%; height:auto;"></div>
-            <div class="poster-item"><img src="poster8.jpg" alt="Poster 8 placeholder" style="max-width:100%; height:auto;"></div>
-          </div>
-        </section>
-
-        <!-- CONTACT / FOOTER -->
-        <section id="contact" style="margin-top:28px;">
-          <h3 class="section-title" style="margin-bottom:6px;">Contact</h3>
-          <p style="text-align:center; margin:0 0 12px;">
-            Want to see more work or collaborate? Email me at
-            <a href="mailto:smithy123@uwaterloo.ca">smithy123@uwaterloo.ca</a>
+        <!-- TEXT -->
+        <div>
+          <p>
+            I’m a design student from London, Ontario with hopes of becoming a professional graphic
+            designer. I'm currently in my second year of Global Business and Digital Arts at the
+            University of Waterloo. I enjoy typography, website design, poster design, and
+            brand identity creation.
           </p>
 
-          <div style="display:flex; justify-content:center; gap:22px; margin-top:8px; align-items:center;">
-            <a href="https://www.behance.net" target="_blank" rel="noopener" class="external">Behance (external)</a>
-            <a href="https://www.linkedin.com" target="_blank" rel="noopener" class="external">LinkedIn</a>
-            <a href="https://github.com" target="_blank" rel="noopener" class="external">GitHub</a>
+          <div class="about-lists">
+            <div>
+              <h3>CONTACT</h3>
+              <ul>
+                <li>Email: smithhuy@gmail.com</li>
+                <li>Phone: 519-672-3480</li>
+              </ul>
+            </div>
+
+            <div>
+              <h3>EDUCATION</h3>
+              <ul>
+                <li>GBDA – University of Waterloo</li>
+                <li>2024 – Present</li>
+              </ul>
+            </div>
+
+            <div>
+              <h3>SOFTWARE SKILLS</h3>
+              <ul>
+                <li>Photoshop</li>
+                <li>Illustrator</li>
+                <li>Figma</li>
+              </ul>
+            </div>
+
+            <div>
+              <h3>INTERESTS</h3>
+              <ul>
+                <li>Graphic Design</li>
+                <li>Photography</li>
+                <li>Music & Cinema</li>
+                <li>Digital Culture</li>
+              </ul>
+            </div>
+
           </div>
-        </section>
 
-        <footer>
-          <div>© 2025 Anderson Smith — Portfolio mockup</div>
-        </footer>
-      </main>
-      <div class="torn-bottom" aria-hidden="true"></div> <!-- decorative torn edge -->
+        </div>
+      </div>
+
     </div>
-  </div>
+  </section>
 
-  <!-- Small script: smooth scrolling for anchor links (allowed, small helper) -->
-  <script>
-    // Smooth scroll for internal links (works on desktop)
-    document.querySelectorAll('a[href^="#"]').forEach(a=>{
-      a.addEventListener('click', function(e){
-        const targetId = this.getAttribute('href').slice(1);
-        const target = document.getElementById(targetId);
-        if(target){
-          e.preventDefault();
-          target.scrollIntoView({behavior:'smooth', block:'start'});
-          history.replaceState(null,'', '#'+targetId);
-        }
-      });
-    });
-  </script>
+  <!-- =======================================================
+       LOGOFOLIO SECTION
+  ==========================================================-->
+  <section id="logofolio">
+    <div class="content-container">
+
+      <h2>LOGOFOLIO</h2>
+
+      <div id="logofolio-grid">
+
+        <div class="logo-box">
+          <img src="logo-placeholder-1.jpg" alt="Logo 1">
+          <p class="logo-caption">2023 Student Personality Logo</p>
+        </div>
+
+        <div class="logo-box">
+          <img src="logo-placeholder-2.jpg" alt="Logo 2">
+          <p class="logo-caption">2023 Caricature Logo</p>
+        </div>
+
+        <div class="logo-box">
+          <img src="logo-placeholder-3.jpg" alt="Logo 3">
+          <p class="logo-caption">Ontario Skills Competition Pin</p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =======================================================
+       POSTERFOLIO SECTION
+  ==========================================================-->
+  <section id="posterfolio">
+    <div class="content-container">
+
+      <h2>POSTERFOLIO</h2>
+
+      <div id="posterfolio-grid">
+
+        <div class="poster-box"><img src="poster-placeholder-1.jpg" alt="Poster 1"></div>
+        <div class="poster-box"><img src="poster-placeholder-2.jpg" alt="Poster 2"></div>
+        <div class="poster-box"><img src="poster-placeholder-3.jpg" alt="Poster 3"></div>
+        <div class="poster-box"><img src="poster-placeholder-4.jpg" alt="Poster 4"></div>
+        <div class="poster-box"><img src="poster-placeholder-5.jpg" alt="Poster 5"></div>
+        <div class="poster-box"><img src="poster-placeholder-6.jpg" alt="Poster 6"></div>
+        <div class="poster-box"><img src="poster-placeholder-7.jpg" alt="Poster 7"></div>
+        <div class="poster-box"><img src="poster-placeholder-8.jpg" alt="Poster 8"></div>
+
+      </div>
+
+    </div>
+  </section>
+
 </body>
 </html>
