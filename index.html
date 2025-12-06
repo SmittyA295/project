@@ -32,19 +32,23 @@
            NOTEBOOK BACKGROUND (OPTION 3 FIX)
         ===================================================== */
         .notebook-bg {
-            position: fixed;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%); /* center exactly */
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    
+    width: 1200px !important;     /* full width of your real artboard */
+    height: 100vh;
+    
+    background-image: url("Artboard.jpg");
+    background-repeat: repeat-y;
+    background-size: 1200px auto !important;  /* force correct scaling */
+    background-position: top center;
+    
+    z-index: -1;
+    pointer-events: none;
+}
 
-            width: 592px;     /* native width of Artboard.jpg */
-            height: 100vh;     /* view height; we will repeat-y */
-
-            background-image: url("Artboard.jpg");
-            background-repeat: repeat-y;
-            background-size: 592px 2048px; /* exact native dimensions */
-            z-index: -1; /* ensures it sits behind all content */
-        }
 
         /* =====================================================
            PAGE STRUCTURE (ASSIGNMENT REQUIREMENT)
