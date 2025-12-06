@@ -1,464 +1,310 @@
 <!DOCTYPE html>
 <html lang="en-CA">
 <head>
-    <meta charset="UTF-8">
-    <title>Anderson Smith – Portfolio</title>
+<meta charset="UTF-8">
+<title>Portfolio – Anderson Smith</title>
 
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Irish+Grover&family=Give+You+Glory&family=Freeman&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Irish+Grover&family=Give+You+Glory&family=Freeman&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
 
-    <style>
-        /* =====================================================
-           RESET
-        ===================================================== */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<style>
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        /* =====================================================
-           BODY BASE (NO BACKGROUND HERE ANYMORE)
-        ===================================================== */
-        body {
-            font-family: "Nanum Pen Script", cursive;
-            font-size: 22px;
-            line-height: 1.55;
-            color: #222;
-            background-color: #ffffff;
-        }
+/* BASE PAGE */
+html {
+    height: 100%;
+}
+body {
+    min-height: 100%;
+    font-family: "Nanum Pen Script", cursive;
+    font-size: 22px;
+    color: #222;
+    background: #fff;
+    position: relative;
+}
 
-        /* =====================================================
-           NOTEBOOK BACKGROUND (OPTION 3 FIX)
-        ===================================================== */
-        .notebook-bg {
+/* FULL 1200px NOTEBOOK BACKGROUND */
+.notebook-bg {
     position: absolute;
     top: 0;
     left: 50%;
     transform: translateX(-50%);
-    
-    width: 1200px !important;     /* full width of your real artboard */
-    height: 100vh;
-    
-    background-image: url("Artboard.jpg");
+
+    width: 1200px;              /* exact width of your Figma artboard */
+    min-height: 100%;
+
+    background-image: url("Artboard2.jpg");
     background-repeat: repeat-y;
-    background-size: 1200px auto !important;  /* force correct scaling */
+    background-size: 1200px auto;
     background-position: top center;
-    
+
     z-index: -1;
     pointer-events: none;
 }
 
+/* MAIN CONTENT CONTAINER */
+.container {
+    width: 1200px;              /* required by assignment */
+    margin: 0 auto;
+    padding: 40px 60px 80px 60px;
+}
 
-        /* =====================================================
-           PAGE STRUCTURE (ASSIGNMENT REQUIREMENT)
-        ===================================================== */
-        .wrapper {
-            max-width: 1440px;
-            margin: 0 auto;
-        }
+/* HEADER AREA */
+header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+.subtitle {
+    font-family: "Give You Glory", cursive;
+    font-size: 2rem;
+    letter-spacing: .1em;
+}
+.hero-title {
+    font-family: "Irish Grover", cursive;
+    font-size: 5rem;
+    color: #6AE5B5;
+    margin-top: 5px;
+}
 
-        .container {
-            width: 1200px; /* REQUIRED */
-            margin: 0 auto;
-            padding: 40px 60px 80px 60px;
-        }
+/* NAVIGATION */
+nav ul {
+    list-style: none;
+    border-top: 1px solid #111;
+    border-bottom: 1px solid #111;
+    padding: 10px 0;
+    margin-top: 20px;
+}
+nav li {
+    display: inline-block;
+    margin: 0 20px;
+    font-family: "Freeman", sans-serif;
+    font-size: 1.1rem;
+    letter-spacing: .1em;
+}
+nav a {
+    color: #000;
+    text-decoration: none;
+}
+nav a:hover { text-decoration: underline; }
 
-        /* =====================================================
-           TOP BAR
-        ===================================================== */
-        .top-bar {
-            display: flex;
-            justify-content: space-between;
-            font-size: 1rem;
-            margin-bottom: 20px;
-        }
-        .top-bar span {
-            border-bottom: 1px solid #333;
-            padding: 0 6px;
-        }
+/* SECTION TITLES */
+.section-title {
+    text-align: center;
+    font-family: "Freeman", sans-serif;
+    font-size: 2.2rem;
+    letter-spacing: .12em;
+    margin-bottom: 25px;
+}
 
-        /* =====================================================
-           HEADER
-        ===================================================== */
-        header {
-            text-align: center;
-            margin-bottom: 35px;
-        }
+/* ABOUT SECTION */
+.about-grid {
+    display: grid;
+    grid-template-columns: 260px auto;
+    gap: 40px;
+}
+.about-grid img {
+    width: 240px;
+    height: 240px;
+    border: 2px solid #000;
+    object-fit: cover;
+}
 
-        .subtitle {
-            font-family: "Give You Glory", cursive;
-            font-size: 1.9rem;
-            letter-spacing: 0.12em;
-            margin-bottom: 6px;
-        }
+.details {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+}
+.details h3 {
+    font-family: "Freeman", sans-serif;
+    font-size: 1.3rem;
+    margin-bottom: 4px;
+}
 
-        .hero-title {
-            font-family: "Irish Grover", cursive;
-            font-size: 5rem;
-            letter-spacing: 0.05em;
-            color: #6AE5B5; /* EXACT mockup colour */
-        }
+/* SIMPLE TABLE */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+td, th {
+    border: 1px solid #444;
+    padding: 6px;
+}
 
-        /* =====================================================
-           NAVIGATION
-        ===================================================== */
-        nav ul {
-            list-style: none;
-            display: inline-block;
-            border-top: 1px solid #000;
-            border-bottom: 1px solid #000;
-            padding: 10px 0;
-            margin-top: 20px;
-        }
+/* LOGO GRID */
+.logo-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+.logo-grid img {
+    width: 100%;
+    height: 150px;
+    object-fit: contain;
+    background: #fff;
+    border: 1px solid #ccc;
+}
+.logo-caption {
+    text-align: center;
+    margin-top: 4px;
+}
 
-        nav li {
-            display: inline-block;
-            margin: 0 18px;
-            font-family: "Freeman", sans-serif;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            font-size: 1.1rem;
-        }
+/* POSTER GRID */
+.poster-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+}
+.poster-grid img {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    border: 1px solid #aaa;
+}
+.poster-caption {
+    text-align: center;
+    margin-top: 4px;
+}
 
-        nav a {
-            text-decoration: none;
-            color: #222;
-        }
-        nav a:hover { text-decoration: underline; }
-        nav a:visited { color: #444; }
-        nav a:active { color: #cc5500; }
+/* CONTACT SECTION */
+.contact {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 40px;
+    margin-bottom: 40px;
+}
 
-        /* =====================================================
-           SECTIONS
-        ===================================================== */
-        section {
-            margin-bottom: 70px;
-        }
-
-        .section-title {
-            font-family: "Freeman", sans-serif;
-            font-size: 2.2rem;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            text-align: center;
-            margin-bottom: 25px;
-        }
-
-        /* =====================================================
-           ABOUT ME
-        ===================================================== */
-        .about-grid {
-            display: grid;
-            grid-template-columns: 35% 65%;
-            gap: 30px;
-        }
-
-        .portrait img {
-            width: 240px;
-            height: 240px;
-            border-radius: 8px;
-            border: 2px solid #333;
-            object-fit: cover;
-        }
-
-        h2 {
-            font-family: "Freeman", sans-serif;
-            font-size: 1.7rem;
-            margin-bottom: 10px;
-        }
-
-        .details-grid {
-            display: grid;
-            grid-template-columns: repeat(2,1fr);
-            gap: 25px;
-            margin-top: 10px;
-        }
-
-        .details-block h3 {
-            font-family: "Freeman", sans-serif;
-            font-size: 1.2rem;
-            margin-bottom: 5px;
-            letter-spacing: 0.06em;
-        }
-
-        .details-block ul {
-            list-style: none;
-        }
-
-        .details-block li {
-            margin-bottom: 4px;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-        table th, table td {
-            border: 1px solid #666;
-            padding: 6px 8px;
-            font-size: 1rem;
-        }
-        table th {
-            background-color: #f0f0f0;
-        }
-
-        /* =====================================================
-           LOGOFOLIO
-        ===================================================== */
-        .logo-grid {
-            display: grid;
-            grid-template-columns: repeat(3,1fr);
-            gap: 30px;
-        }
-        .logo-item img {
-            width: 100%;
-            height: 140px;
-            object-fit: contain;
-            background: #fff;
-            border: 1px solid #ccc;
-        }
-        .logo-caption {
-            margin-top: 6px;
-            text-align: center;
-            font-size: 1rem;
-        }
-
-        /* =====================================================
-           POSTERFOLIO
-        ===================================================== */
-        .poster-grid {
-            display: grid;
-            grid-template-columns: repeat(4,1fr);
-            gap: 25px;
-        }
-        .poster-item img {
-            width: 100%;
-            height: 230px;
-            object-fit: cover;
-            background: #fff;
-            border: 1px solid #ccc;
-        }
-        .poster-caption {
-            text-align: center;
-            margin-top: 6px;
-        }
-
-        /* =====================================================
-           CONTACT
-        ===================================================== */
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1.3fr 1fr;
-            gap: 35px;
-        }
-
-        footer {
-            margin-top: 40px;
-            text-align: center;
-            font-size: 1rem;
-        }
-    </style>
+/* FOOTER */
+footer {
+    text-align: center;
+    font-size: 1rem;
+    margin-top: 40px;
+}
+</style>
 </head>
 
 <body>
 
-<!-- =========================================================
-     NOTEBOOK BACKGROUND BEHIND CONTENT (Option 3)
-========================================================= -->
 <div class="notebook-bg"></div>
 
-<div class="wrapper">
 <div class="container">
 
-    <!-- TOP BAR -->
-    <div class="top-bar">
-        <div>Name: <span>Anderson Smith</span></div>
-        <div>Date: <span>11/17/2025</span></div>
-    </div>
+<header id="top">
+    <div class="subtitle">Graphic Design</div>
+    <div class="hero-title">PORTFOLIO</div>
 
-    <!-- HEADER -->
-    <header id="top">
-        <div class="subtitle">Graphic Design</div>
-        <h1 class="hero-title">PORTFOLIO</h1>
+    <nav>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#logos">Logofolio</a></li>
+            <li><a href="#posters">Posterfolio</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+</header>
 
-        <nav>
-            <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#logofolio">Logofolio</a></li>
-                <li><a href="#posterfolio">Posterfolio</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
 
-    <!-- ABOUT -->
-    <section id="about">
-        <div class="section-title">About Me</div>
+<!-- ABOUT -->
+<section id="about">
+    <div class="section-title">About Me</div>
 
-        <div class="about-grid">
-            <div class="portrait">
-                <img src="images/portrait.jpg" alt="">
-            </div>
+    <div class="about-grid">
+        <img src="images/portrait.jpg" alt="Portrait">
 
-            <div>
-                <h2>Who I Am</h2>
-                <p>
-                    I'm a 19-year-old design student from London, Ontario studying Global Business and Digital
-                    Arts at the University of Waterloo. I enjoy typography, poster design, branding,
-                    cinematography, and digital culture.
-                </p>
+        <div>
+            <p>I'm a 19-year-old design student from London, Ontario studying Global Business and Digital Arts at the University of Waterloo.</p>
 
-                <div class="details-grid">
-                    <div class="details-block">
-                        <h3>Contact</h3>
-                        <ul>
-                            <li>Email: <a href="mailto:smittya295@uwaterloo.ca">smittya295@uwaterloo.ca</a></li>
-                            <li>Phone: 519-677-5440</li>
-                            <li>Instagram: <a href="https://www.instagram.com" target="_blank">@anderson.design</a></li>
-                        </ul>
-                    </div>
+            <div class="details">
+                <div>
+                    <h3>Contact</h3>
+                    <p>Email: <a href="mailto:smittya295@uwaterloo.ca">smittya295@uwaterloo.ca</a></p>
+                    <p>Instagram: @anderson.design</p>
+                </div>
 
-                    <div class="details-block">
-                        <h3>Education</h3>
-                        <table>
-                            <tr><th>Year</th><th>Program</th><th>Status</th></tr>
-                            <tr><td>2024–Now</td><td>GBDA – University of Waterloo</td><td>2nd Year</td></tr>
-                            <tr><td>2020–2024</td><td>High School Arts Program</td><td>Completed</td></tr>
-                        </table>
-                    </div>
-
-                    <div class="details-block">
-                        <h3>Software Skills</h3>
-                        <ul>
-                            <li>Photoshop</li>
-                            <li>Illustrator</li>
-                            <li>InDesign</li>
-                        </ul>
-                    </div>
-
-                    <div class="details-block">
-                        <h3>Interests</h3>
-                        <ul>
-                            <li>Typography</li>
-                            <li>Photography</li>
-                            <li>Music</li>
-                            <li>History</li>
-                        </ul>
-                    </div>
+                <div>
+                    <h3>Education</h3>
+                    <table>
+                        <tr><th>Year</th><th>Program</th></tr>
+                        <tr><td>2024–Now</td><td>GBDA – University of Waterloo</td></tr>
+                    </table>
                 </div>
             </div>
+
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- LOGOFOLIO -->
-    <section id="logofolio">
-        <div class="section-title">Logofolio</div>
 
-        <div class="logo-grid">
-            <div class="logo-item">
-                <img src="images/logo1.png">
-                <p class="logo-caption">Personality-based logo project.</p>
-            </div>
+<!-- LOGOS -->
+<section id="logos">
+    <div class="section-title">Logofolio</div>
 
-            <div class="logo-item">
-                <img src="images/logo2.png">
-                <p class="logo-caption">Professor Zhao caricature logo.</p>
-            </div>
-
-            <div class="logo-item">
-                <img src="images/logo3.png">
-                <p class="logo-caption">Steel Ball Run fan logo.</p>
-            </div>
-
-            <div class="logo-item">
-                <img src="images/logo4.png">
-                <p class="logo-caption">Skills Ontario pin contest.</p>
-            </div>
-
-            <div class="logo-item">
-                <img src="images/logo5.png">
-                <p class="logo-caption">Snacks & Lattes branding.</p>
-            </div>
-
-            <div class="logo-item">
-                <img src="images/logo6.png">
-                <p class="logo-caption">Skills Ontario medal concept.</p>
-            </div>
+    <div class="logo-grid">
+        <div>
+            <img src="images/logo1.png">
+            <p class="logo-caption">Logo 1</p>
         </div>
-    </section>
-
-    <!-- POSTERFOLIO -->
-    <section id="posterfolio">
-        <div class="section-title">Posterfolio</div>
-
-        <div class="poster-grid">
-            <div class="poster-item">
-                <img src="images/poster1.jpg">
-                <p class="poster-caption">Cake Pops poster.</p>
-            </div>
-
-            <div class="poster-item">
-                <img src="images/poster2.jpg">
-                <p class="poster-caption">La La Land redesign.</p>
-            </div>
-
-            <div class="poster-item">
-                <img src="images/poster3.jpg">
-                <p class="poster-caption">Shrek musical poster.</p>
-            </div>
-
-            <div class="poster-item">
-                <img src="images/poster4.jpg">
-                <p class="poster-caption">Alternate Cake Pops poster.</p>
-            </div>
-
-            <div class="poster-item">
-                <img src="images/poster5.jpg">
-                <p class="poster-caption">Silly Billys sketch design.</p>
-            </div>
-
-            <div class="poster-item">
-                <img src="images/poster6.jpg">
-                <p class="poster-caption">Silly Billys high-contrast.</p>
-            </div>
-
-            <div class="poster-item">
-                <img src="images/poster7.jpg">
-                <p class="poster-caption">Snacks & Lattes opening.</p>
-            </div>
-
-            <div class="poster-item">
-                <img src="images/poster8.jpg">
-                <p class="poster-caption">Orbital abstract poster.</p>
-            </div>
+        <div>
+            <img src="images/logo2.png">
+            <p class="logo-caption">Logo 2</p>
         </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact">
-        <div class="section-title">Contact</div>
-
-        <div class="contact-grid">
-            <div>
-                <p>Thank you for viewing my portfolio! I'm always excited to take on new design challenges.</p>
-                <p>Feel free to reach out regarding projects, collaborations, or opportunities.</p>
-            </div>
-
-            <div>
-                <h3 style="font-family: 'Freeman', sans-serif;">Get in Touch</h3>
-                <a href="mailto:smittya295@uwaterloo.ca">Email Me</a><br>
-                <a href="https://uwaterloo.ca/" target="_blank">University of Waterloo</a><br>
-                <a href="#top">Back to Top ↑</a>
-            </div>
+        <div>
+            <img src="images/logo3.png">
+            <p class="logo-caption">Logo 3</p>
         </div>
-    </section>
+    </div>
+</section>
 
-    <footer>
-        © 2025 Anderson Smith – GBDA 228 Assignment 3
-    </footer>
 
-</div>
+<!-- POSTERS -->
+<section id="posters">
+    <div class="section-title">Posterfolio</div>
+
+    <div class="poster-grid">
+        <div>
+            <img src="images/poster1.jpg">
+            <p class="poster-caption">Poster 1</p>
+        </div>
+        <div>
+            <img src="images/poster2.jpg">
+            <p class="poster-caption">Poster 2</p>
+        </div>
+        <div>
+            <img src="images/poster3.jpg">
+            <p class="poster-caption">Poster 3</p>
+        </div>
+        <div>
+            <img src="images/poster4.jpg">
+            <p class="poster-caption">Poster 4</p>
+        </div>
+    </div>
+</section>
+
+
+<!-- CONTACT -->
+<section id="contact">
+    <div class="section-title">Contact</div>
+
+    <div class="contact">
+        <p>Thanks for viewing my portfolio! Feel free to reach out regarding design work or collaborations.</p>
+
+        <div>
+            <h3 style="font-family: 'Freeman', sans-serif;">Get in Touch</h3>
+            <p><a href="mailto:smittya295@uwaterloo.ca">Email Me</a></p>
+            <p><a href="#top">Back to Top ↑</a></p>
+        </div>
+    </div>
+</section>
+
+<footer>
+    © 2025 Anderson Smith – GBDA 228 Assignment 3
+</footer>
+
 </div>
 
 </body>
