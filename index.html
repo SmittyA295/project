@@ -17,18 +17,21 @@
 
 /* BASE PAGE */
 html {
-    height: 100%;
+    height: auto;
 }
+
+/* SCROLL BREAKTHROUGH FIX — FORCE PAGE HEIGHT TO MATCH ARTBOARD */
 body {
-    min-height: 100%;
+    min-height: 5400px; /* Artboard2 is ~5260px — add padding */
     font-family: "Nanum Pen Script", cursive;
     font-size: 22px;
+    line-height: 1.55;
     color: #222;
     background: #fff;
     position: relative;
 }
 
-/* FULL-WIDTH NOTEBOOK BACKGROUND FROM GITHUB PAGES */
+/* NOTEBOOK BACKGROUND */
 .notebook-bg {
     position: absolute;
     top: 0;
@@ -36,7 +39,7 @@ body {
     transform: translateX(-50%);
 
     width: 1200px;
-    min-height: 100%;
+    height: 100%;
 
     background-image: url("https://smittya295.github.io/project/Artboard2.jpg");
     background-repeat: repeat-y;
@@ -47,28 +50,27 @@ body {
     pointer-events: none;
 }
 
-/* MAIN CONTENT AREA */
+/* MAIN WRAPPER */
 .container {
     width: 1200px;
     margin: 0 auto;
-    padding: 40px 60px 80px 60px;
+    padding: 60px 70px 120px 70px;
 }
 
 /* HEADER */
 header {
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 80px;
 }
 .subtitle {
     font-family: "Give You Glory", cursive;
     font-size: 2rem;
-    letter-spacing: .1em;
+    margin-bottom: 10px;
 }
 .hero-title {
     font-family: "Irish Grover", cursive;
     font-size: 5rem;
     color: #6AE5B5;
-    margin-top: 5px;
 }
 
 /* NAVIGATION */
@@ -76,36 +78,34 @@ nav ul {
     list-style: none;
     border-top: 1px solid #111;
     border-bottom: 1px solid #111;
-    padding: 10px 0;
-    margin-top: 20px;
+    padding: 16px 0;
+    margin-top: 28px;
 }
 nav li {
     display: inline-block;
-    margin: 0 20px;
+    margin: 0 28px;
     font-family: "Freeman", sans-serif;
-    font-size: 1.1rem;
-    letter-spacing: .1em;
+    font-size: 1.2rem;
 }
-nav a {
-    color: #000;
-    text-decoration: none;
-}
+nav a { color: #000; text-decoration: none; }
 nav a:hover { text-decoration: underline; }
 
-/* SECTION TITLES */
+/* SECTIONS */
+section {
+    margin-bottom: 100px;
+}
 .section-title {
     text-align: center;
     font-family: "Freeman", sans-serif;
-    font-size: 2.2rem;
-    letter-spacing: .12em;
-    margin-bottom: 25px;
+    font-size: 2.4rem;
+    margin-bottom: 40px;
 }
 
-/* ABOUT SECTION */
+/* ABOUT */
 .about-grid {
     display: grid;
     grid-template-columns: 260px auto;
-    gap: 40px;
+    gap: 55px;
 }
 .about-grid img {
     width: 240px;
@@ -114,16 +114,20 @@ nav a:hover { text-decoration: underline; }
     object-fit: cover;
 }
 
+.about-grid p {
+    margin-bottom: 22px;
+}
+
 .details {
-    margin-top: 20px;
+    margin-top: 25px;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 25px;
+    gap: 35px;
 }
 .details h3 {
     font-family: "Freeman", sans-serif;
-    font-size: 1.3rem;
-    margin-bottom: 4px;
+    font-size: 1.4rem;
+    margin-bottom: 8px;
 }
 
 /* TABLE */
@@ -133,14 +137,21 @@ table {
 }
 td, th {
     border: 1px solid #444;
-    padding: 6px;
+    padding: 8px;
 }
 
-/* LOGO GRID */
+/* SOFTWARE SKILLS */
+.skills-list img {
+    width: 55px;
+    margin-right: 10px;
+}
+
+/* LOGOFOLIO */
 .logo-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
+    grid-template-columns: repeat(3,1fr);
+    gap: 40px;
+    padding: 0 15px;
 }
 .logo-grid img {
     width: 100%;
@@ -151,42 +162,44 @@ td, th {
 }
 .logo-caption {
     text-align: center;
-    margin-top: 4px;
+    margin-top: 8px;
 }
 
-/* POSTER GRID */
+/* POSTERFOLIO */
 .poster-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 25px;
+    grid-template-columns: repeat(4,1fr);
+    gap: 35px;
+    padding: 0 10px;
 }
 .poster-grid img {
     width: 100%;
-    height: 240px;
+    height: 250px;
     object-fit: cover;
     border: 1px solid #aaa;
 }
 .poster-caption {
     text-align: center;
-    margin-top: 4px;
+    margin-top: 8px;
 }
 
 /* CONTACT */
 .contact {
     display: grid;
     grid-template-columns: 1.3fr 1fr;
-    gap: 40px;
+    gap: 50px;
     margin-bottom: 40px;
 }
 
 /* FOOTER */
 footer {
     text-align: center;
+    margin-top: 80px;
     font-size: 1rem;
-    margin-top: 40px;
 }
 </style>
 </head>
+
 
 <body>
 
@@ -208,57 +221,142 @@ footer {
     </nav>
 </header>
 
+
+<!-- ABOUT -->
 <section id="about">
-    <div class="section-title">About Me</div>
+    <div class="section-title">ABOUT ME</div>
 
     <div class="about-grid">
-        <img src="images/portrait.jpg" alt="Portrait">
+        <img src="images/portrait-placeholder.png" alt="Portrait Placeholder">
 
         <div>
-            <p>I'm a 19-year-old design student from London, Ontario studying Global Business and Digital Arts at the University of Waterloo.</p>
+            <p>I'm a 19-year-old design student from London Ontario with the hopes of one day becoming a professional graphic designer. I'm currently majoring in my second year of Global Business and Digital Arts at the University of Waterloo, and some design processes I enjoy include typography, website design, poster design, and brand identity creation.</p>
 
             <div class="details">
                 <div>
-                    <h3>Contact</h3>
+                    <h3>CONTACT</h3>
                     <p>Email: <a href="mailto:smittya295@uwaterloo.ca">smittya295@uwaterloo.ca</a></p>
-                    <p>Instagram: @anderson.design</p>
+                    <p>Phone: 519-677-5440</p>
                 </div>
 
                 <div>
-                    <h3>Education</h3>
-                    <table>
-                        <tr><th>Year</th><th>Program</th></tr>
-                        <tr><td>2024–Now</td><td>GBDA – University of Waterloo</td></tr>
-                    </table>
+                    <h3>EDUCATION</h3>
+                    <p>2024 – NOW</p>
+                    <p>Global Business and Digital Arts<br>University of Waterloo</p>
+                </div>
+
+                <div>
+                    <h3>SOFTWARE SKILLS</h3>
+                    <div class="skills-list">
+                        <img src="images/ps.png" alt="Photoshop">
+                        <img src="images/ai.png" alt="Illustrator">
+                        <img src="images/id.png" alt="InDesign">
+                    </div>
+                </div>
+
+                <div>
+                    <h3>INTERESTS</h3>
+                    <p>• Graphic Design<br>• Photography<br>• Music<br>• History<br>• Cinema<br>• Digital Culture</p>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
+
+<!-- LOGOFOLIO -->
 <section id="logos">
-    <div class="section-title">Logofolio</div>
+    <div class="section-title">LOGOFOLIO</div>
 
     <div class="logo-grid">
-        <div><img src="images/logo1.png"><p class="logo-caption">Logo 1</p></div>
-        <div><img src="images/logo2.png"><p class="logo-caption">Logo 2</p></div>
-        <div><img src="images/logo3.png"><p class="logo-caption">Logo 3</p></div>
+
+        <div>
+            <img src="images/logo-placeholder.png" alt="Sun Face Logo">
+            <p class="logo-caption">First year GBDA project creating logos connected to personality traits.</p>
+        </div>
+
+        <div>
+            <img src="images/logo-placeholder.png" alt="Professor Caricature">
+            <p class="logo-caption">Second year GBDA project featuring a caricature of Professor Will Zhao.</p>
+        </div>
+
+        <div>
+            <img src="images/logo-placeholder.png" alt="Steel Ball Run Logo">
+            <p class="logo-caption">Reinterpretation of the Steel Ball Run logo.</p>
+        </div>
+
+        <div>
+            <img src="images/logo-placeholder.png" alt="Skills Ontario Pin">
+            <p class="logo-caption">2024 Ontario Skills competition pin design submission.</p>
+        </div>
+
+        <div>
+            <img src="images/logo-placeholder.png" alt="Snacks & Lattes Logo">
+            <p class="logo-caption">Brand identity created for a board game café.</p>
+        </div>
+
+        <div>
+            <img src="images/logo-placeholder.png" alt="Skills Ontario Medal Design">
+            <p class="logo-caption">2024 Ontario Skills competition medal redesign contest entry.</p>
+        </div>
+
     </div>
 </section>
 
+
+<!-- POSTERFOLIO -->
 <section id="posters">
-    <div class="section-title">Posterfolio</div>
+    <div class="section-title">POSTERFOLIO</div>
 
     <div class="poster-grid">
-        <div><img src="images/poster1.jpg"><p class="poster-caption">Poster 1</p></div>
-        <div><img src="images/poster2.jpg"><p class="poster-caption">Poster 2</p></div>
-        <div><img src="images/poster3.jpg"><p class="poster-caption">Poster 3</p></div>
-        <div><img src="images/poster4.jpg"><p class="poster-caption">Poster 4</p></div>
+
+        <div>
+            <img src="images/poster-placeholder.png" alt="Cake Pops Poster">
+            <p class="poster-caption">When Life Gives You a Failed Cake… Make Cake Pops!</p>
+        </div>
+
+        <div>
+            <img src="images/poster-placeholder.png" alt="La La Land Poster">
+            <p class="poster-caption">La La Land – minimalistic reinterpretation.</p>
+        </div>
+
+        <div>
+            <img src="images/poster-placeholder.png" alt="Shrek Poster">
+            <p class="poster-caption">Shrek the Musical promotional poster.</p>
+        </div>
+
+        <div>
+            <img src="images/poster-placeholder.png" alt="Garden Poster">
+            <p class="poster-caption">Rustic botanical-themed advertisement.</p>
+        </div>
+
+        <div>
+            <img src="images/poster-placeholder.png" alt="Silly Billies Poster">
+            <p class="poster-caption">Hand-drawn poster for The Silly Billies.</p>
+        </div>
+
+        <div>
+            <img src="images/poster-placeholder.png" alt="Grand Opening Poster">
+            <p class="poster-caption">Snacks & Lattes Grand Opening promotional design.</p>
+        </div>
+
+        <div>
+            <img src="images/poster-placeholder.png" alt="Psychedelic Circle Poster">
+            <p class="poster-caption">Psychedelic themed geometric poster.</p>
+        </div>
+
+        <div>
+            <img src="images/poster-placeholder.png" alt="Color Burst Poster">
+            <p class="poster-caption">Experimental color and shape study.</p>
+        </div>
+
     </div>
 </section>
 
+
+<!-- CONTACT -->
 <section id="contact">
-    <div class="section-title">Contact</div>
+    <div class="section-title">CONTACT</div>
 
     <div class="contact">
         <p>Thanks for viewing my portfolio! Feel free to reach out.</p>
