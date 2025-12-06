@@ -8,47 +8,61 @@
     <link href="https://fonts.googleapis.com/css2?family=Irish+Grover&family=Give+You+Glory&family=Freeman&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
 
     <style>
-        /* ============================
-           GLOBAL RESET
-        ============================= */
+        /* =====================================================
+           RESET
+        ===================================================== */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        /* ============================
-           BACKGROUND FIX (592 × 2048)
-        ============================= */
+        /* =====================================================
+           BODY BASE (NO BACKGROUND HERE ANYMORE)
+        ===================================================== */
         body {
-            background-image: url("Artboard.jpg");
-            background-repeat: repeat-y;
-            background-size: 592px 2048px;   /* native image size */
-            background-position: top center;  /* perfect notebook alignment */
             font-family: "Nanum Pen Script", cursive;
             font-size: 22px;
             line-height: 1.55;
             color: #222;
+            background-color: #ffffff;
         }
 
-        /* ============================
-           MAIN PAGE WIDTH (1200px)
-           REQUIRED FOR ASSIGNMENT
-        ============================= */
+        /* =====================================================
+           NOTEBOOK BACKGROUND (OPTION 3 FIX)
+        ===================================================== */
+        .notebook-bg {
+            position: fixed;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%); /* center exactly */
+
+            width: 592px;     /* native width of Artboard.jpg */
+            height: 100vh;     /* view height; we will repeat-y */
+
+            background-image: url("Artboard.jpg");
+            background-repeat: repeat-y;
+            background-size: 592px 2048px; /* exact native dimensions */
+            z-index: -1; /* ensures it sits behind all content */
+        }
+
+        /* =====================================================
+           PAGE STRUCTURE (ASSIGNMENT REQUIREMENT)
+        ===================================================== */
         .wrapper {
             max-width: 1440px;
             margin: 0 auto;
         }
 
         .container {
-            width: 1200px;
+            width: 1200px; /* REQUIRED */
             margin: 0 auto;
             padding: 40px 60px 80px 60px;
         }
 
-        /* ============================
+        /* =====================================================
            TOP BAR
-        ============================= */
+        ===================================================== */
         .top-bar {
             display: flex;
             justify-content: space-between;
@@ -60,9 +74,9 @@
             padding: 0 6px;
         }
 
-        /* ============================
-           HEADER + FONTS
-        ============================= */
+        /* =====================================================
+           HEADER
+        ===================================================== */
         header {
             text-align: center;
             margin-bottom: 35px;
@@ -70,7 +84,7 @@
 
         .subtitle {
             font-family: "Give You Glory", cursive;
-            font-size: 2rem;
+            font-size: 1.9rem;
             letter-spacing: 0.12em;
             margin-bottom: 6px;
         }
@@ -78,13 +92,13 @@
         .hero-title {
             font-family: "Irish Grover", cursive;
             font-size: 5rem;
-            letter-spacing: 0.06em;
-            color: #6AE5B5; /* EXACT MOCKUP COLOUR */
+            letter-spacing: 0.05em;
+            color: #6AE5B5; /* EXACT mockup colour */
         }
 
-        /* ============================
+        /* =====================================================
            NAVIGATION
-        ============================= */
+        ===================================================== */
         nav ul {
             list-style: none;
             display: inline-block;
@@ -104,16 +118,16 @@
         }
 
         nav a {
-            color: #222;
             text-decoration: none;
+            color: #222;
         }
         nav a:hover { text-decoration: underline; }
         nav a:visited { color: #444; }
         nav a:active { color: #cc5500; }
 
-        /* ============================
+        /* =====================================================
            SECTIONS
-        ============================= */
+        ===================================================== */
         section {
             margin-bottom: 70px;
         }
@@ -122,14 +136,14 @@
             font-family: "Freeman", sans-serif;
             font-size: 2.2rem;
             letter-spacing: 0.12em;
-            text-align: center;
             text-transform: uppercase;
+            text-align: center;
             margin-bottom: 25px;
         }
 
-        /* ============================
+        /* =====================================================
            ABOUT ME
-        ============================= */
+        ===================================================== */
         .about-grid {
             display: grid;
             grid-template-columns: 35% 65%;
@@ -161,6 +175,7 @@
             font-family: "Freeman", sans-serif;
             font-size: 1.2rem;
             margin-bottom: 5px;
+            letter-spacing: 0.06em;
         }
 
         .details-block ul {
@@ -174,23 +189,22 @@
         table {
             width: 100%;
             border-collapse: collapse;
-            margin-top: 6px;
-            font-size: 1rem;
         }
         table th, table td {
-            border: 1px solid #555;
+            border: 1px solid #666;
             padding: 6px 8px;
+            font-size: 1rem;
         }
         table th {
             background-color: #f0f0f0;
         }
 
-        /* ============================
-           LOGOFOLIO GRID
-        ============================= */
+        /* =====================================================
+           LOGOFOLIO
+        ===================================================== */
         .logo-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(3,1fr);
             gap: 30px;
         }
         .logo-item img {
@@ -201,13 +215,14 @@
             border: 1px solid #ccc;
         }
         .logo-caption {
-            margin-top: 8px;
+            margin-top: 6px;
             text-align: center;
+            font-size: 1rem;
         }
 
-        /* ============================
-           POSTERFOLIO GRID
-        ============================= */
+        /* =====================================================
+           POSTERFOLIO
+        ===================================================== */
         .poster-grid {
             display: grid;
             grid-template-columns: repeat(4,1fr);
@@ -217,21 +232,21 @@
             width: 100%;
             height: 230px;
             object-fit: cover;
-            border: 1px solid #ccc;
             background: #fff;
+            border: 1px solid #ccc;
         }
         .poster-caption {
-            margin-top: 6px;
             text-align: center;
+            margin-top: 6px;
         }
 
-        /* ============================
+        /* =====================================================
            CONTACT
-        ============================= */
+        ===================================================== */
         .contact-grid {
             display: grid;
-            grid-template-columns: 1.4fr 1fr;
-            gap: 30px;
+            grid-template-columns: 1.3fr 1fr;
+            gap: 35px;
         }
 
         footer {
@@ -243,6 +258,11 @@
 </head>
 
 <body>
+
+<!-- =========================================================
+     NOTEBOOK BACKGROUND BEHIND CONTENT (Option 3)
+========================================================= -->
+<div class="notebook-bg"></div>
 
 <div class="wrapper">
 <div class="container">
@@ -268,26 +288,24 @@
         </nav>
     </header>
 
-    <!-- ABOUT SECTION -->
+    <!-- ABOUT -->
     <section id="about">
         <div class="section-title">About Me</div>
 
         <div class="about-grid">
             <div class="portrait">
-                <img src="images/portrait.jpg" alt="Portrait of Anderson Smith">
+                <img src="images/portrait.jpg" alt="">
             </div>
 
             <div>
                 <h2>Who I Am</h2>
                 <p>
-                    I'm a 19-year-old design student from London, Ontario studying Global Business and
-                    Digital Arts at the University of Waterloo. I enjoy typography, poster design, branding,
+                    I'm a 19-year-old design student from London, Ontario studying Global Business and Digital
+                    Arts at the University of Waterloo. I enjoy typography, poster design, branding,
                     cinematography, and digital culture.
                 </p>
 
                 <div class="details-grid">
-
-                    <!-- CONTACT -->
                     <div class="details-block">
                         <h3>Contact</h3>
                         <ul>
@@ -297,17 +315,15 @@
                         </ul>
                     </div>
 
-                    <!-- EDUCATION -->
                     <div class="details-block">
                         <h3>Education</h3>
                         <table>
                             <tr><th>Year</th><th>Program</th><th>Status</th></tr>
                             <tr><td>2024–Now</td><td>GBDA – University of Waterloo</td><td>2nd Year</td></tr>
-                            <tr><td>2020–2024</td><td>High School Arts</td><td>Completed</td></tr>
+                            <tr><td>2020–2024</td><td>High School Arts Program</td><td>Completed</td></tr>
                         </table>
                     </div>
 
-                    <!-- SOFTWARE -->
                     <div class="details-block">
                         <h3>Software Skills</h3>
                         <ul>
@@ -317,7 +333,6 @@
                         </ul>
                     </div>
 
-                    <!-- INTERESTS -->
                     <div class="details-block">
                         <h3>Interests</h3>
                         <ul>
@@ -327,10 +342,8 @@
                             <li>History</li>
                         </ul>
                     </div>
-
                 </div>
             </div>
-
         </div>
     </section>
 
@@ -340,33 +353,33 @@
 
         <div class="logo-grid">
             <div class="logo-item">
-                <img src="images/logo1.png" alt="">
+                <img src="images/logo1.png">
                 <p class="logo-caption">Personality-based logo project.</p>
             </div>
 
             <div class="logo-item">
-                <img src="images/logo2.png" alt="">
-                <p class="logo-caption">Professor Zhao caricature mark.</p>
+                <img src="images/logo2.png">
+                <p class="logo-caption">Professor Zhao caricature logo.</p>
             </div>
 
             <div class="logo-item">
-                <img src="images/logo3.png" alt="">
+                <img src="images/logo3.png">
                 <p class="logo-caption">Steel Ball Run fan logo.</p>
             </div>
 
             <div class="logo-item">
-                <img src="images/logo4.png" alt="">
+                <img src="images/logo4.png">
                 <p class="logo-caption">Skills Ontario pin contest.</p>
             </div>
 
             <div class="logo-item">
-                <img src="images/logo5.png" alt="">
+                <img src="images/logo5.png">
                 <p class="logo-caption">Snacks & Lattes branding.</p>
             </div>
 
             <div class="logo-item">
-                <img src="images/logo6.png" alt="">
-                <p class="logo-caption">Skills Ontario medal design.</p>
+                <img src="images/logo6.png">
+                <p class="logo-caption">Skills Ontario medal concept.</p>
             </div>
         </div>
     </section>
@@ -393,12 +406,12 @@
 
             <div class="poster-item">
                 <img src="images/poster4.jpg">
-                <p class="poster-caption">Alt Cake Pops poster.</p>
+                <p class="poster-caption">Alternate Cake Pops poster.</p>
             </div>
 
             <div class="poster-item">
                 <img src="images/poster5.jpg">
-                <p class="poster-caption">Silly Billys sketch poster.</p>
+                <p class="poster-caption">Silly Billys sketch design.</p>
             </div>
 
             <div class="poster-item">
@@ -424,14 +437,14 @@
 
         <div class="contact-grid">
             <div>
-                <p>Thank you for viewing my portfolio! I’m always excited to take on new design challenges.</p>
+                <p>Thank you for viewing my portfolio! I'm always excited to take on new design challenges.</p>
                 <p>Feel free to reach out regarding projects, collaborations, or opportunities.</p>
             </div>
 
             <div>
                 <h3 style="font-family: 'Freeman', sans-serif;">Get in Touch</h3>
-                <a href="mailto:smittya295@uwaterloo.ca">Email Me</a>
-                <a href="https://uwaterloo.ca/" target="_blank">University of Waterloo</a>
+                <a href="mailto:smittya295@uwaterloo.ca">Email Me</a><br>
+                <a href="https://uwaterloo.ca/" target="_blank">University of Waterloo</a><br>
                 <a href="#top">Back to Top ↑</a>
             </div>
         </div>
